@@ -1,20 +1,12 @@
-# Backend - Go
-Go >=1.21
-PostgreSQL >=14
-Redis
-git
+# Go backend dependencies (for reference)
+github.com/lib/pq
+github.com/stripe/stripe-go/v76
+github.com/joho/godotenv
 
-# Frontend - Next.js (TypeScript)
-node >=18
-npm >=9
-next
-typescript
-react
-react-dom
+golang.org/x/crypto/bcrypt
 
-# Dev Tools
-docker
-docker-compose
-wget
-curl
-zsh
+# Frontend dependencies are managed in frontend/package.json
+# Main ones include:
+# next, react, react-dom, @stripe/stripe-js
+
+# Stripe secret key and other sensitive info should be in .env (not here)

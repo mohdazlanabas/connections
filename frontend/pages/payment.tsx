@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import { loadStripe } from "@stripe/stripe-js";
 import Link from "next/link";
+import { useRouter } from 'next/router';
 
 export default function Payment() {
+  const router = useRouter();
+  const { item, price } = router.query;
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -42,26 +45,50 @@ export default function Payment() {
           </button>
         </Link>
       </div>
-      <h2>Subscribe to Connections App</h2>
-      <p style={{ marginBottom: 24 }}>
-        Unlock premium features and connect with more people! Choose a plan and pay securely with Stripe.
-      </p>
-      <div style={{ background: '#f7fafc', padding: 16, borderRadius: 8, marginBottom: 24 }}>
-        <h3>Premium Membership</h3>
-        <ul style={{ margin: '12px 0' }}>
-          <li>Unlimited messaging</li>
-          <li>Private video calls</li>
-          <li>Priority search</li>
-        </ul>
-        <div style={{ fontWeight: 'bold', fontSize: '1.2rem', margin: '12px 0' }}>$9.99/month</div>
-      </div>
-      <button
-        style={{ padding: 12, background: '#635bff', color: '#fff', border: 'none', borderRadius: 4, fontSize: '1rem', width: '100%' }}
-        onClick={handleSubscribe}
-        disabled={loading}
-      >
-        {loading ? 'Redirecting...' : 'Subscribe with Stripe'}
-      </button>
+      {item && price ? (
+        <>
+          <h2>Purchase: {item.toString().replace('_', ' ')}</h2>
+          <div style={{ background: '#f7fafc', padding: 16, borderRadius: 8, marginBottom: 24, textAlign: 'center' }}>
+            <img
+              src={`/assets/png/${item}.png`}
+              alt={item.toString()}
+              style={{ width: 80, height: 80, objectFit: 'contain', marginBottom: 12 }}
+            />
+            <h3>Item: {item.toString().replace('_', ' ')}</h3>
+            <div style={{ fontWeight: 'bold', fontSize: '1.2rem', margin: '12px 0' }}>${price}</div>
+          </div>
+          <button
+            style={{ padding: 12, background: '#635bff', color: '#fff', border: 'none', borderRadius: 4, fontSize: '1rem', width: '100%' }}
+            onClick={handleSubscribe}
+            disabled={loading}
+          >
+            {loading ? 'Redirecting...' : `Pay $${price} with Stripe`}
+          </button>
+        </>
+      ) : (
+        <>
+          <h2>Subscribe to Connections App</h2>
+          <p style={{ marginBottom: 24 }}>
+            Unlock premium features and connect with more people! Choose a plan and pay securely with Stripe.
+          </p>
+          <div style={{ background: '#f7fafc', padding: 16, borderRadius: 8, marginBottom: 24 }}>
+            <h3>Premium Membership</h3>
+            <ul style={{ margin: '12px 0' }}>
+              <li>Unlimited messaging</li>
+              <li>Private video calls</li>
+              <li>Priority search</li>
+            </ul>
+            <div style={{ fontWeight: 'bold', fontSize: '1.2rem', margin: '12px 0' }}>$9.99/month</div>
+          </div>
+          <button
+            style={{ padding: 12, background: '#635bff', color: '#fff', border: 'none', borderRadius: 4, fontSize: '1rem', width: '100%' }}
+            onClick={handleSubscribe}
+            disabled={loading}
+          >
+            {loading ? 'Redirecting...' : 'Subscribe with Stripe'}
+          </button>
+        </>
+      )}
       {error && <div style={{ color: 'red', marginTop: 12 }}>{error}</div>}
     </div>
   );

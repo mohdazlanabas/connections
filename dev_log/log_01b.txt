@@ -1,0 +1,30 @@
+App Development Log - Since 2:00pm
+==================================
+
+**Stripe Payment Integration:**
+- Integrated Stripe Checkout for one-time payments (Premium Membership, $9.99).
+- Backend endpoint `/api/create-checkout-session` creates a Stripe Checkout session and returns the payment URL.
+- Frontend payment page calls this endpoint and redirects users to Stripe for payment.
+- Switched from subscription mode to one-time payment mode to resolve Stripe API error.
+
+**Frontend Improvements:**
+- Payment page now includes a "Back to Search" button for easy navigation.
+- Search page has a "Go Premium" button linking to the payment page.
+
+**Security & GitHub Compliance:**
+- Stripe secret key moved from code to `.env` file for security.
+- Backend loads environment variables using `github.com/joho/godotenv`.
+- `.env` is included in `.gitignore` to prevent secrets from being committed.
+- Instructions provided for removing secrets from git history if previously committed.
+
+**Error Handling & User Experience:**
+- Handled Stripe errors and browser warnings (e.g., unsupported `<link rel=preload>` and Stripe JS module errors).
+- Payment flow tested and confirmed working with Stripe test keys.
+
+**Requirements & Documentation:**
+- Updated `requirements.txt` to reflect Go backend dependencies and note frontend dependencies are in `package.json`.
+
+**Next Steps:**
+- Optionally handle payment success/cancel on the frontend.
+- Consider deploying the app to a cost-effective platform (Railway, Render, Vercel, etc.).
+- Continue feature development as needed. 

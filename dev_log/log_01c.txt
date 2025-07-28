@@ -1,0 +1,32 @@
+---
+Connections App Dev Log (log_01c)
+Summary of Activities and Changes (Past 2 Hours)
+---
+
+1. Added 20 purchase cards to search.tsx:
+   - Each card uses a unique image from /assets/png/ and displays a price ($100 to $2000).
+   - Images were moved from assets/pnglang to frontend/public/assets/png, and filenames were used as card names.
+
+2. Enhanced search.tsx functionality:
+   - Implemented a search box that scrolls to the relevant card if the item exists.
+   - The "Buy" button on each card now redirects to payment.tsx with the selected item and price as query parameters.
+   - The top bar's "Logout" button was changed to a "Home" button linking to home.tsx.
+
+3. Updated payment.tsx:
+   - Displays the selected item's image, name, and price when redirected from a card purchase.
+   - Payment UI adapts based on whether a specific item is being purchased or a premium subscription is selected.
+
+4. Created home.tsx:
+   - Duplicated from index.tsx but removed the Login button for logged-in users.
+   - Added a "Search" button to navigate to search.tsx.
+   - Added a "Logout" button to return to index.tsx.
+
+5. Navigation improvements:
+   - Users can now easily move between Home, Search, and Logout (landing) pages.
+
+6. Codebase maintenance:
+   - Counted total lines of code (1,943, excluding .gitignore files).
+   - Verified and terminated (if any) running git processes (none found).
+
+---
+End of log. 
