@@ -1,0 +1,35 @@
+Day 1 Morning Dev Activity Log
+=============================
+
+**Project Overview:**
+- The project is a web app for connecting people, allowing users to upload profiles, search for others, message, and arrange video calls. It supports multilingual messaging and privacy features.
+
+**Initial Setup:**
+- The project uses a Go backend and a Next.js (TypeScript) frontend.
+- The frontend starter page was updated to reflect the app's purpose, with sections for profile upload, search, messaging, video, and calendar.
+
+**Backend:**
+- The Go backend (main.go) provides an /api/hello endpoint.
+- CORS headers were added to allow the frontend (localhost:3000) to communicate with the backend (localhost:8080).
+- To start the backend:
+  1. Open a terminal.
+  2. Navigate to the backend directory:
+     cd backend
+  3. Run the server:
+     go run main.go
+
+**Frontend:**
+- The frontend is a Next.js app located in the frontend directory.
+- To start the frontend:
+  1. Open a new terminal window/tab.
+  2. Navigate to the frontend directory:
+     cd frontend
+  3. Install dependencies (if not already done):
+     npm install
+  4. Start the development server:
+     npm run dev
+
+**Troubleshooting:**
+- If the frontend cannot fetch from the backend, ensure both servers are running and CORS headers are set in the Go backend.
+- Visit http://localhost:8080/api/hello to check backend status.
+- Visit http://localhost:3000 to view the frontend. 

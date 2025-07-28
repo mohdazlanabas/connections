@@ -1,0 +1,14 @@
+Overview & Introduction
+
+I am developing a desktop web app that allows people to connect and meet after uploading their profile. The site will allow them to search the criteria of whom they want to meet and for what interest.
+The site will take membership subscription be it monthly or yearly.
+
+Messaging and Video Features
+The user are allowed to upload 5 photos, 2 video stories and fill in their information.
+The site allows them to make private video calls and messaging. 
+They can message in any language and the app will translate the message based on the user preference
+•	Language selection
+The app does not allow screen recoding or screenshot.
+
+The user have profile page showing their photos, videos, introduction and what they are looking for
+The app have a calendar feature to arrange meets for video chat.
