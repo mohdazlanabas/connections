@@ -1,5 +1,5 @@
-Day 1 Morning Dev Activity Log
-=============================
+Activity Log > Day 01: AM
+=========================
 
 **Project Overview:**
 - The project is a web app for connecting people, allowing users to upload profiles, search for others, message, and arrange video calls. It supports multilingual messaging and privacy features.
